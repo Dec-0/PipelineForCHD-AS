@@ -1,7 +1,7 @@
 # **PipelineForCHD-AS**
 
 ## Introduction
- This pipeline was designed for germline variant calling using Nanopore adaptive sampling data. It is compatible with samples derived from blood cells or tissues, and the gene panel can scale from one single gene to several hundreds. Two analys mode was supported, CHD-1 for the variants calling of CNV on off-target area and SNP/InDel/SV/CNV on on-target area, CHD-2 for the variants calling of CNV on off-target and SV on on-target.
+ This pipeline was designed for germline variant calling using Nanopore adaptive sampling data. It is compatible with samples derived from blood cells or tissues, and the gene panel can scale from one single gene to several hundreds. Two analysis modes were supported, CHD-1 for the variants calling of CNV in off-target area and SNP/InDel/SV/CNV in on-target area, CHD-2 for the variants calling of CNV in off-target and SV in on-target.
 
 ## Requirements
  Softwares and databases required were listed in config.yaml and soft.yaml. And the corresponding entries should be replaced manually according to the environment.
