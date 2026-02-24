@@ -1,0 +1,34 @@
+Sample: None
+Stamp: None
+DSPer: None
+DSNum: None
+DSCov: None
+Flag4Trim: "No"
+Flag4QC: "Yes"
+Flag4SnpIndel: "Yes"
+Flag4SV: "Yes"
+Flag4CNV_On: "Yes"
+Flag4CNV_Off: "Yes"
+Genome: "~/DB/Reference/hg38/hg38.fasta"
+Bed4Genome: "~/DB/Reference/hg38/genome.Nblock.bed"
+Prefix4Fq: "~/projects/CHD_Panel/Fastq"
+Bed4Panel: "~/projects/CHD_Panel/DataFromHospital/Panel_Genes/CHDPanel_Genes.hg38.PromoterGeneBody.nochr.bed"
+Bed4PanelExtend: "~/projects/CHD_Panel/DataFromHospital/Panel_Genes/CHDPanel_Genes.hg38.PromoterGeneBody.80kb.nochr.bed"
+Bed4Depth: "~/projects/CHD_Panel/DataFromHospital/Panel_Genes/CHDPanel_Genes.hg38.PromoterGeneBody.nochr.bed"
+RootDir: "/public"
+# QC
+WindowWGS: "~/DB/Reference/hg38/hg38.fasta.100k_50k.windows"
+WindowSize4WGS: "50000"
+# SNP & InDel
+Model4Clair3: "~/miniconda3/envs/clair3/bin/models/r1041_e82_400bps_sup_g615"
+Model4Pepper: "--ont_r10_q20"
+Model4Deep: "ONT_R104"
+# On-Target CNV
+BamRefList: "~/projects/CHD_Panel/DataFromHospital/Panel_Genes/CHDPanel_Genes.ExomeDepth.RefBam.txt"
+PanelBinPrefix: "~/projects/CHD_Panel/DataFromHospital/Panel_Genes/CHDPanel_Genes.hg38.PromoterGeneBody.nochr.5kBin"
+RefSet4ReadCountPrefix: "~/projects/CHD_Panel/DataFromHospital/Panel_Genes/5kBin.CHD.Prospective50SP_Retrospective4SP_Strip5.ReadCount.WithGC"
+RefSet4MeanDepthPrefix: "~/projects/CHD_Panel/DataFromHospital/Panel_Genes/5kBin.CHD.Prospective50SP_Retrospective4SP_Strip5.MeanDepth.WithGC"
+# Off-Target CNV
+BinInfo4QDNAseq: "~/DB/CNV/QDNAseq/Bin30Kb_GEMLen600_residualCHD.txt"
+GenType: "hg38"
+CNVBin: "30"

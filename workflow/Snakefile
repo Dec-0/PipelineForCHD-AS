@@ -1,0 +1,68 @@
+import os
+import sys
+import re
+import subprocess as commands
+from datetime import datetime
+
+# config file
+args = sys.argv
+if '-s' in sys.argv:
+	Dir4SF = os.path.dirname(args[args.index("-s") + 1])
+elif '--snakefile' in sys.argv:
+	Dir4SF = os.path.dirname(args[args.index("--snakefile") + 1])
+configfile: Dir4SF + "/../config/config.yaml"
+WorkDir = os.getcwd()
+
+# sample list
+config["Sample"] = str(config["Sample"])
+# time stamp
+config["Stamp"] = datetime.now().strftime("%Y%m%d%H%M")
+
+# rule
+all_list = list()
+if str(config["Flag4QC"]) == "Yes":
+	all_list.extend(expand("QC/{Sample}/{Sample}.fulldepth.txt.gz", Sample = config["Sample"].split(' ')))
+	all_list.extend(expand("QC/{Sample}/{Sample}.bam.stat.txt", Sample = config["Sample"].split(' ')))
+	all_list.extend(expand("QC/{Sample}/{Sample}.mosdepth.summary.txt", Sample = config["Sample"].split(' ')))
+	all_list.extend(expand("QC/{Sample}/{Sample}.PanelStat.txt", Sample = config["Sample"].split(' ')))
+	all_list.extend(expand("QC/{Sample}/Circos/{Sample}.Circos.WGS.cov.png", Sample = config["Sample"].split(' ')))
+	all_list.extend(expand("QC/{Sample}/Circos/{Sample}.Circos.Panel.cov.png", Sample = config["Sample"].split(' ')))
+	all_list.extend(expand("QC/{Sample}/{Sample}.GenderInfo.txt", Sample = config["Sample"].split(' ')))
+	all_list.extend(expand("Report/{Sample}/{Sample}.QC.xls", Sample = config["Sample"].split(' ')))
+if str(config["Flag4SnpIndel"]) == "Yes":
+	all_list.extend(expand("clair3/{Sample}/{Sample}.snp.vcf", Sample = config["Sample"].split(' ')))
+	all_list.extend(expand("clair3/{Sample}/{Sample}.indel.vcf", Sample = config["Sample"].split(' ')))
+	all_list.extend(expand("deepvariant/{Sample}/{Sample}.snp.vcf", Sample = config["Sample"].split(' ')))
+	all_list.extend(expand("deepvariant/{Sample}/{Sample}.indel.vcf", Sample = config["Sample"].split(' ')))
+	all_list.extend(expand("pepper_deepvariant/{Sample}/Annotation/pepper_deepvariant.snp.hg38_multianno.txt", Sample = config["Sample"].split(' ')))
+	all_list.extend(expand("pepper_deepvariant/{Sample}/Annotation/pepper_deepvariant.indel.hg38_multianno.txt", Sample = config["Sample"].split(' ')))
+	all_list.extend(expand("Report/{Sample}/{Sample}.SNP_InDel.xls", Sample = config["Sample"].split(' ')))
+if str(config["Flag4SV"]) == "Yes":
+	all_list.extend(expand("FinalSV/{Sample}/Annotation/FinalSV.xls", Sample = config["Sample"].split(' ')))
+	all_list.extend(expand("Report/{Sample}/{Sample}.SV.xls", Sample = config["Sample"].split(' ')))
+if str(config["Flag4CNV_On"]) == "Yes":
+	all_list.extend(expand("ExomeDepth/{Sample}/Annotation/ExomeDepth.xls", Sample = config["Sample"].split(' ')))
+	all_list.extend(expand("ExomeDepth/{Sample}/Circos/{Sample}.ReadCount.cov.png", Sample = config["Sample"].split(' ')))
+	all_list.extend(expand("ExomeDepth/{Sample}/Circos/{Sample}.MeanDepth.cov.png", Sample = config["Sample"].split(' ')))
+if str(config["Flag4CNV_Off"]) == "Yes":
+	all_list.extend(expand("QDNAseq/{Sample}/Annotation/QDNAseq.xls", Sample = config["Sample"].split(' ')))
+if str(config["Flag4CNV_On"]) == "Yes" or str(config["Flag4CNV_Off"]) == "Yes":
+	all_list.extend(expand("Report/{Sample}/{Sample}.CNV.xls", Sample = config["Sample"].split(' ')))
+rule all:
+	input:
+		all_list
+
+include: "rules/Fq.smk"
+include: "rules/Map.smk"
+include: "rules/QC.smk"
+include: "rules/Clair3.smk"
+include: "rules/DeepVariant.smk"
+include: "rules/PepperDeepVariant.smk"
+include: "rules/Sniffles.smk"
+include: "rules/Debreak.smk"
+include: "rules/pbsv.smk"
+include: "rules/CuteSV.smk"
+include: "rules/SVMerge.smk"
+include: "rules/QDNAseq.smk"
+include: "rules/ExomeDepth.smk"
+include: "rules/Report.smk"

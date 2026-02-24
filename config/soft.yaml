@@ -1,0 +1,53 @@
+#----- conda env & python & R & perl -----
+# conda env for fq manipulation, which should include soft like: chopper, NanoFilt, jasmine
+env4fq	~/softs/miniconda3/envs/sci
+# conda env for phasing, which should include soft like: whatshap
+env4phasing	~/softs/miniconda3/envs/py39
+# conda env for clair3
+env4clair3	~/softs/miniconda3/envs/clair3
+# conda env for debreak
+env4debreak	~/softs/miniconda3/envs/debreak
+# Perl 5.26.3, with packages like: FindBin, File::Basename, Getopt::Long
+perl	~/softs/perl-5.26.3/bin/perl
+# Python 3.12.2, with packages like: argparse, os, sys, re, pycirclize, numpy, collections
+python1	~/softs/miniconda3/envs/sci/bin/python
+# Python 2.7.16, with packages like: sys, commands
+python2	~/softs/Python-2.7.16/bin/python
+# Python 3.7.7, with packages like: argparse, os, sys, re, pickle, random, gzip, numpy, pandas, pysam
+python3	~/softs/Python-3.7.7/bin/python3
+# Python 3.12.2, with packages like: argparse, pysam, time, sys, os, numpy, collections, pathlib
+python4	~/softs/miniconda3/envs/sci/bin/python3
+# R 4.3.1, with packages like: ggplot2, grid, svglite, scales, 
+Rscript1	~/softs/miniconda3/envs/R36/bin/Rscript
+# R 4.2.0, wich packages like: argparser, ExomeDepth, argparser, matrixStats, QDNAseq, Biobase, QDNAseq.hg38, QDNAseq.hg19
+Rscript2	~/softs/miniconda3/envs/R42/bin/Rscript
+#----- software -----
+samtools1	~/softs/samtools-1.14/bin/samtools
+samtools2	~/softs/miniconda3/envs/samtools/bin/samtools
+env4minimap	~/softs/miniconda3/envs/minimap
+ngmlr	~/softs/ngmlr-0.2.7/ngmlr
+pbmm2	~/softs/miniconda3/bin/pbmm2
+fastp	~/softs/fastp-0.20.0/fastp
+bedtools	~/softs/bedtools-2.26.0/bin/bedtools
+mosdepth	~/softs/mosdepth-v0.3.6/bin/mosdepth
+fxTools	~/softs/fxTools-0.1.0/target/release/fxTools
+csvtk	~/softs/cstvk-0.29.0/bin/csvtk
+bcftools	~/softs/hap.py-0.3.15/bin/bcftools
+tabix	~/softs/samtools-1.14/bin/tabix
+bgzip	~/softs/samtools-1.14/bin/bgzip
+vcftools	~/softs/vcftools_0.1.13/bin/vcftools
+vcfsort	~/softs/vcftools_0.1.13/bin/vcf-sort
+pbsv	~/softs/miniconda3/bin/pbsv
+nanoplot	~/softs/Python-3.7.7/bin/NanoPlot
+sniffles	~/softs/Python-3.7.7/bin/sniffles
+cuteSV	~/softs/Python-3.7.7/bin/cuteSV
+truvari	~/softs/Python-3.7.7/bin/truvari
+annotSV	~/software/AnnotSV/bin/AnnotSV
+#----- files -----
+Sif4DeepVariant	~/softs/DeepVariant-1.6.0/deepvariant_1.6.0.sif
+Sif4PepperDeepVariant	~/softs/pepper_deepvariant/pepper_deepvariant_r0.8.sif
+Sif4Annovar	~/containers/annovar.sif
+annotSVDB	~/software/AnnotSV/db/share/AnnotSV
+annovarDB	~/DB/Annotation/hg38
+DB4SV	~/DB/Annotation/SV_hg38
+File4SNPList	~/DB/Annotation/hg38/hg38_EAS.sites.2015_08.Freq0.5.txt.gz

@@ -1,0 +1,4 @@
+SNPList	~/DB/Annotation/hg38/hg38_EAS.sites.2015_08.Freq0.5.txt.gz
+Bin4Samtools	~/softs/samtools-1.14/bin/samtools
+ThreadNum	10
+MinY	0.05
