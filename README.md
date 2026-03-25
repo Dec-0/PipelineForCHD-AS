@@ -13,4 +13,4 @@
 ## Command for analysing
  1. CHD-1: nohup snakemake -s /path/to/Snakefile --cores 30 --config Sample="NA24385R10" Flag4QC="Yes" Flag4SnpIndel="Yes" Flag4SV="Yes" Flag4CNV_On="Yes" Flag4CNV_Off="Yes" > nohup.log 2>&1 &
  2. CHD-2: nohup snakemake -s /path/to/Snakefile --cores 30 --config Sample="NA24385R10" Flag4QC="Yes" Flag4SnpIndel="No" Flag4SV="Yes" Flag4CNV_On="No" Flag4CNV_Off="Yes" > nohup.log 2>&1 &
- 3. For sample name such as NA24385R10, all associated fastq files are listed in a file named NA24385R10.FqList.txt, with one fastq a line. This file should be placed in the directory specified in the config file.
+ 3. For each sample (e.g., NA24385R10), all associated FASTQ files should be listed in a file named NA24385R10.FqList.txt, with one FASTQ file per line. This file should be placed in the directory specified in the configuration file.
